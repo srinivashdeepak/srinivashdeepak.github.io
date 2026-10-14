@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Deepak M | Python Full-Stack Developer</title>
+<meta name="description" content="Portfolio of Deepak M, a Python full-stack developer and Electronics and Communication Engineering graduate (2026) based in Bengaluru.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F6F8;
+  --surface:#FFFFFF;
+  --text:#1B2430;
+  --muted:#556070;
+  --line:#D9DEE5;
+  --accent:#0A6B6B;
+  --accent-ink:#FFFFFF;
+  --accent-soft:#E3F1F0;
+  --wave:#0A6B6B;
+  --display:'Bricolage Grotesque','Segoe UI',system-ui,-apple-system,sans-serif;
+  --sans:'IBM Plex Sans','Segoe UI',system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F151C;
+    --surface:#151D26;
+    --text:#E7EDF3;
+    --muted:#9AA8B7;
+    --line:#263341;
+    --accent:#5FD3C6;
+    --accent-ink:#0F151C;
+    --accent-soft:#17302F;
+    --wave:#5FD3C6;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F151C;
+  --surface:#151D26;
+  --text:#E7EDF3;
+  --muted:#9AA8B7;
+  --line:#263341;
+  --accent:#5FD3C6;
+  --accent-ink:#0F151C;
+  --accent-soft:#17302F;
+  --wave:#5FD3C6;
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:calc(72px + env(safe-area-inset-top,0px));
+  background:var(--bg);
+}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  font-size:17px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--accent);text-underline-offset:3px;}
+a:hover{text-decoration-thickness:2px;}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px;}
+.wrap{max-width:1040px;margin:0 auto;padding:0 28px;}
+
+/* Header */
+header.site{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+  background:var(--bg);
+  border-bottom:1px solid var(--line);
+}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:20px;height:60px;}
+.brand{font-family:var(--display);font-weight:800;font-size:20px;color:var(--text);text-decoration:none;letter-spacing:-0.01em;}
+nav.main{display:flex;align-items:center;gap:26px;}
+nav.main a{color:var(--muted);text-decoration:none;font-size:15px;font-weight:500;padding:6px 0;}
+nav.main a:hover{color:var(--text);}
+.theme-btn{
+  background:transparent;border:1px solid var(--line);color:var(--text);
+  width:38px;height:38px;border-radius:50%;cursor:pointer;display:grid;place-items:center;
+}
+.theme-btn:hover{border-color:var(--accent);}
+.theme-btn svg{width:18px;height:18px;}
+
+/* Hero */
+.hero{padding:88px 0 0;}
+.hero h1{
+  font-family:var(--display);font-weight:800;
+  font-size:clamp(46px,9vw,104px);line-height:0.98;letter-spacing:-0.035em;
+  margin:0 0 22px;
+}
+.hero .role{font-family:var(--display);font-weight:500;font-size:clamp(20px,3vw,28px);color:var(--accent);margin:0 0 22px;letter-spacing:-0.01em;}
+.hero .lead{max-width:62ch;font-size:19px;color:var(--text);margin:0 0 32px;}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:44px;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--sans);font-weight:600;font-size:15px;
+  padding:12px 20px;border-radius:8px;border:1px solid var(--accent);
+  text-decoration:none;cursor:pointer;
+}
+.btn.primary{background:var(--accent);color:var(--accent-ink);}
+.btn.primary:hover{filter:brightness(1.08);}
+.btn.ghost{background:transparent;color:var(--accent);}
+.btn.ghost:hover{background:var(--accent-soft);}
+.facts{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;
+  border-top:1px solid var(--line);
+}
+.fact{padding:18px 20px 18px 0;}
+.fact + .fact{padding-left:20px;border-left:1px solid var(--line);}
+.fact dt{font-size:14px;color:var(--muted);margin:0 0 2px;}
+.fact dd{margin:0;font-weight:600;}
+.signal{display:block;width:100%;height:96px;margin-top:8px;}
+.signal path{fill:none;stroke:var(--wave);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;}
+.signal-note{font-size:14px;color:var(--muted);margin:6px 0 0;}
+
+/* Sections */
+section.block{padding:84px 0 0;}
+section.block h2{
+  font-family:var(--display);font-weight:700;font-size:clamp(28px,4vw,40px);
+  letter-spacing:-0.02em;line-height:1.1;margin:0 0 36px;
+}
+.row{
+  display:grid;grid-template-columns:240px minmax(0,1fr);gap:12px 40px;
+  padding:28px 0;border-top:1px solid var(--line);
+}
+.row:last-child{border-bottom:1px solid var(--line);}
+.row h3{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.25;margin:0 0 4px;letter-spacing:-0.01em;}
+.meta{color:var(--muted);font-size:15px;margin:0;}
+.row p{margin:0 0 12px;max-width:68ch;}
+.row ul{margin:0;padding-left:20px;max-width:68ch;}
+.row li{margin-bottom:6px;}
+.row .tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:14px 0;max-width:none;}
+.row .tags li{
+  margin:0;font-size:14px;color:var(--text);
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:6px;padding:3px 10px;
+}
+.link{font-weight:600;}
+
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 56px;margin:0;}
+.skills div{padding:18px 0;border-top:1px solid var(--line);}
+.skills dt{font-weight:600;margin:0 0 4px;}
+.skills dd{margin:0;color:var(--muted);}
+
+.contact-lead{max-width:56ch;margin:0 0 28px;font-size:19px;}
+.contact-list{list-style:none;margin:0 0 28px;padding:0;border-top:1px solid var(--line);}
+.contact-list li{
+  display:grid;grid-template-columns:140px minmax(0,1fr);gap:12px;
+  padding:16px 0;border-bottom:1px solid var(--line);
+}
+.contact-list span{color:var(--muted);}
+.contact-list a{font-weight:500;word-break:break-word;}
+#copy-status{font-size:15px;color:var(--accent);margin-left:6px;}
+
+footer.site{margin-top:96px;border-top:1px solid var(--line);padding:26px 0 36px;color:var(--muted);font-size:14px;}
+
+/* One orchestrated moment: the signal draws once on load */
+.signal path{stroke-dasharray:var(--len,3000);stroke-dashoffset:var(--len,3000);animation:draw 2.4s ease-out 0.2s forwards;}
+@keyframes draw{to{stroke-dashoffset:0;}}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  .signal path{animation:none;stroke-dashoffset:0;}
+}
+
+@media (max-width:760px){
+  body{font-size:16px;}
+  .wrap{padding:0 20px;}
+  header.site{position:static;}
+  .bar{height:auto;padding:14px 0;flex-wrap:wrap;}
+  nav.main{order:3;width:100%;gap:18px;flex-wrap:wrap;}
+  .hero{padding-top:48px;}
+  .hero .lead{font-size:17px;}
+  .facts{grid-template-columns:1fr;}
+  .fact,.fact + .fact{padding:14px 0;border-left:none;border-top:1px solid var(--line);}
+  .fact:first-child{border-top:none;}
+  section.block{padding-top:64px;}
+  .row{grid-template-columns:1fr;gap:8px;}
+  .skills{grid-template-columns:1fr;}
+  .contact-list li{grid-template-columns:1fr;gap:2px;}
+}
+@media print{
+  header.site,.theme-btn,.signal,.signal-note{display:none;}
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top">Deepak M</a>
+    <nav class="main" aria-label="Primary">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="theme-btn" id="theme-btn" type="button" aria-label="Switch colour theme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <h1>Deepak M</h1>
+      <p class="role">Python full-stack developer</p>
+      <p class="lead">I build web applications end to end: Python backends, SQL-backed data handling, clean browser interfaces, and API integrations. I am an Electronics and Communication Engineering graduate, and I am looking for a software developer role where I can learn from senior engineers and ship real features.</p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">View projects</a>
+        <a class="btn ghost" href="mailto:deepaksrinivash448@gmail.com">Email me</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/deepak-m-373a0a29b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="btn ghost" href="https://github.com/srinivashdeepak" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+      <dl class="facts">
+        <div class="fact"><dt>Based in</dt><dd>Bengaluru, Karnataka</dd></div>
+        <div class="fact"><dt>Education</dt><dd>B.E. in ECE, class of 2026</dd></div>
+        <div class="fact"><dt>Looking for</dt><dd>Software developer roles and internships</dd></div>
+      </dl>
+      <svg class="signal" id="signal" viewBox="0 0 1200 96" preserveAspectRatio="none" role="img" aria-label="A smooth analog wave that turns into a digital square wave">
+        <path id="signal-path" d=""></path>
+      </svg>
+      <p class="signal-note">From analog signals to software: my engineering background, my development work.</p>
+    </div>
+  </section>
+
+  <section class="block" id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <article class="row">
+        <div>
+          <h3>AI-powered personal finance assistant</h3>
+          <p class="meta">Full-stack application</p>
+        </div>
+        <div>
+          <p>A web app that reads Paytm transaction PDFs and turns them into structured financial insights: income, expenses, spending trends, and ideas to cut costs. A Python backend handles PDF parsing and logic, a Gradio interface serves users, and the Google Gemini API writes the analysis.</p>
+          <ul class="tags" aria-label="Technologies">
+            <li>Python</li><li>Gradio</li><li>Google Gemini API</li><li>PyPDF2</li>
+          </ul>
+          <a class="link" href="https://github.com/srinivashdeepak/financial_analysis" target="_blank" rel="noopener noreferrer">View source on GitHub</a>
+        </div>
+      </article>
+      <article class="row">
+        <div>
+          <h3>Multilingual language translator</h3>
+          <p class="meta">Full-stack application</p>
+        </div>
+        <div>
+          <p>A browser-based app that translates Tamil, Hindi, and Telugu text into English using neural machine translation APIs. The backend detects the source language automatically, and the interface responds in real time.</p>
+          <ul class="tags" aria-label="Technologies">
+            <li>Python</li><li>Gradio</li><li>langdetect</li><li>Translation APIs</li>
+          </ul>
+          <a class="link" href="https://github.com/srinivashdeepak/A-Languauge-translator" target="_blank" rel="noopener noreferrer">View source on GitHub</a>
+        </div>
+      </article>
+      <article class="row">
+        <div>
+          <h3>Mall customer segmentation</h3>
+          <p class="meta">Machine learning</p>
+        </div>
+        <div>
+          <p>A K-Means clustering pipeline that groups mall customers by annual income and spending score, so marketing teams can see distinct behaviour groups. It covers data cleaning, feature scaling, and cluster visualisation.</p>
+          <ul class="tags" aria-label="Technologies">
+            <li>Python</li><li>Pandas</li><li>NumPy</li><li>Scikit-learn</li>
+          </ul>
+          <a class="link" href="https://github.com/srinivashdeepak/customer-segmentation-using-K-means-clustering" target="_blank" rel="noopener noreferrer">View source on GitHub</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="experience">
+    <div class="wrap">
+      <h2>Experience</h2>
+      <article class="row">
+        <div>
+          <h3>Technical intern</h3>
+          <p class="meta">NLC India Limited (NLCIL), Neyveli<br>Jun 2025 to Jul 2025</p>
+        </div>
+        <div>
+          <ul>
+            <li>Supported operational monitoring and performance evaluation of industrial systems, with exposure to real-time engineering workflows.</li>
+            <li>Assisted with system performance analysis and wrote technical documentation for live plant operations.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="row">
+        <div>
+          <h3>Telecommunication intern</h3>
+          <p class="meta">BSNL, Madurai<br>Aug 2025</p>
+        </div>
+        <div>
+          <ul>
+            <li>Assisted with monitoring and basic troubleshooting of telecommunication network infrastructure.</li>
+            <li>Documented system operations and supported technical processes in a live telecom environment.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="skills">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <dl class="skills">
+        <div><dt>Languages</dt><dd>Python, C, SQL, JavaScript</dd></div>
+        <div><dt>Web</dt><dd>HTML, CSS, JavaScript, Gradio</dd></div>
+        <div><dt>Databases</dt><dd>MySQL: joins, subqueries, aggregate functions, schema design</dd></div>
+        <div><dt>APIs and integration</dt><dd>REST API consumption, Google Gemini API</dd></div>
+        <div><dt>Data and machine learning</dt><dd>NumPy, Pandas, Scikit-learn, Matplotlib, Seaborn, K-Means clustering</dd></div>
+        <div><dt>Tools</dt><dd>Git, GitHub, VS Code, PyCharm, Google Colab</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="block" id="education">
+    <div class="wrap">
+      <h2>Education and certifications</h2>
+      <article class="row">
+        <div>
+          <h3>B.E. in Electronics and Communication Engineering</h3>
+          <p class="meta">2022 to 2026</p>
+        </div>
+        <div>
+          <p><strong>University College of Engineering, Dindigul</strong><br>CGPA: 7.87 out of 10</p>
+        </div>
+      </article>
+      <article class="row">
+        <div>
+          <h3>Certifications and activities</h3>
+        </div>
+        <div>
+          <ul>
+            <li>Data Analyst and Visual Job Simulation, Accenture (Forage)</li>
+            <li>Workshop attendee: Python using AI, conducted by AI for Techies</li>
+            <li>Open-source contributor to Python, machine learning, and generative AI projects on GitHub</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <p class="contact-lead">I am open to software developer roles and internships. The quickest way to reach me is email.</p>
+      <ul class="contact-list">
+        <li><span>Email</span><a href="mailto:deepaksrinivash448@gmail.com">deepaksrinivash448@gmail.com</a></li>
+        <li><span>Phone</span><a href="tel:+919361261861">+91 93612 61861</a></li>
+        <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/deepak-m-373a0a29b/" target="_blank" rel="noopener noreferrer">linkedin.com/in/deepak-m-373a0a29b</a></li>
+        <li><span>GitHub</span><a href="https://github.com/srinivashdeepak" target="_blank" rel="noopener noreferrer">github.com/srinivashdeepak</a></li>
+      </ul>
+      <button class="btn primary" id="copy-email" type="button">Copy email address</button>
+      <span id="copy-status" role="status" aria-live="polite"></span>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">&copy; 2026 Deepak M</div>
+</footer>
+
+<script>
+(function(){
+  // Signal: smooth wave on the left turns into a square wave on the right.
+  var path = document.getElementById('signal-path');
+  var W = 1200, mid = 48, amp = 34, cycles = 6, d = '';
+  function smooth(a,b,x){var t=Math.min(1,Math.max(0,(x-a)/(b-a)));return t*t*(3-2*t);}
+  for (var x = 0; x <= W; x += 2) {
+    var t = x / W;
+    var s = Math.sin(t * Math.PI * 2 * cycles);
+    var q = s >= 0 ? 1 : -1;
+    var m = smooth(0.35, 0.75, t);
+    var y = mid - amp * ((1 - m) * s + m * q);
+    d += (x === 0 ? 'M' : 'L') + x + ' ' + y.toFixed(1);
+  }
+  path.setAttribute('d', d);
+  try {
+    var len = Math.ceil(path.getTotalLength());
+    path.style.setProperty('--len', len);
+  } catch (e) {}
+
+  // Theme toggle (follows the system setting until the visitor chooses)
+  var root = document.documentElement;
+  var btn = document.getElementById('theme-btn');
+  var mq = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+  function current(){
+    var t = root.getAttribute('data-theme');
+    if (t) return t;
+    return mq && mq.matches ? 'dark' : 'light';
+  }
+  btn.addEventListener('click', function(){
+    root.setAttribute('data-theme', current() === 'dark' ? 'light' : 'dark');
+  });
+
+  // Copy email
+  var copyBtn = document.getElementById('copy-email');
+  var status = document.getElementById('copy-status');
+  var email = 'deepaksrinivash448@gmail.com';
+  function done(msg){
+    status.textContent = msg;
+    setTimeout(function(){ status.textContent = ''; }, 2500);
+  }
+  copyBtn.addEventListener('click', function(){
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(function(){ done('Email address copied.'); },
+          function(){ done('Copy is blocked here. Email: ' + email); });
+      } else {
+        done('Copy is not available here. Email: ' + email);
+      }
+    } catch (e) {
+      done('Copy is blocked here. Email: ' + email);
+    }
+  });
+})();
+</script>
+</body>
+</html>
